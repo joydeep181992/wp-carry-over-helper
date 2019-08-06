@@ -43,25 +43,22 @@ var lines;
 			".html": "/",
 			".cfm": "/",
 			".cfml": "/",
+			"_": " "
 		};
-		var filUrl = ur.replace(/\.shtml|\.html|\.cfm|\.cfml/gi, function (matched) {
+		var filUrl = ur.replace(/\.shtml|\.html|\.cfm|\.cfml|\_/gi, function (matched) {
 			return extention[matched];
-		}).replace(/[0-9]*/gi, "").split("/");
-	
-		var title = '';
-	
+		}).replace(/[0-9]*/gi, "").split("/");	
+		var title = '';	
 		for(var i = 0; i < filUrl.length; i++) {
 			filUrl[i] === "" ? title = filUrl[filUrl.length - 2] : title = filUrl[filUrl.length - 1]
-		}
-	
+		}	
 		title = title.split("-");
 		var capitalize = [];
 		for (var j = 0; j < title.length; j++) {
 			capitalize.push(title[j].charAt(0).toUpperCase() + title[j].slice(1));
 		}
 		return capitalize.join(" ");
-	}
-	
+	}	
 
 	//Function For Blog
 	function fillLines() {
